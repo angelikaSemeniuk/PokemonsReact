@@ -1,0 +1,53 @@
+/* General styles */
+body {
+    font-family: Arial, SansSerif;
+    font-size: 100%;
+}
+
+.container {
+    background-color: aliceblue; border: 2px solid #e9eaed;
+}
+
+.list {
+    background-color: aliceblue;
+}
+
+/* Header styles */
+.header {
+    height: 40px;
+    background-color: beige;
+    border: 2px solid #e9eaed;
+    font-weight: bold;
+}
+
+.header h1 {
+    color: yellowgreen;
+    text-align: center;
+    margin: 0;
+}
+
+/* Main styles */
+.item {
+    margin: 30px;
+    display: inline-block;
+    border: 1px solid #e9eaed;
+    color: yellowgreen;
+    background-color: beige;
+    padding: 40px 0;
+    width: 20%;
+
+}
+.item h2 {
+    color: yellowgreen;
+    text-align: center;
+    margin: 0;
+}
+
+.pagination {
+    margin: 0;
+    text-align: center;
+}
+
+
+
+

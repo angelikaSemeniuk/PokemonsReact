@@ -1,5 +1,6 @@
 import React from "react";
 import ListComponent from "./ListComponent";
+import PaginationComponent from "./PaginationComponent";
 
 export default class TestApp extends React.Component{
     constructor(props) {
@@ -7,6 +8,8 @@ export default class TestApp extends React.Component{
         this.state = {
             items: []
         };
+        this.recordsPerPage = 50;
+        this.numberPages = 0;
         this.updateItems = this.updateItems.bind(this);
     }
 
@@ -15,15 +18,15 @@ export default class TestApp extends React.Component{
     }
 
     componentDidMount() {
-        fetch('https://pokeapi.co/api/v2/pokemon/?limit=50&offset=50')
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=50&offset=0')
             .then((response) => {
                 return response.json();
             })
             .then(
                 (data) => {
-                    this.setState({items : data.results});
-                    console.error("items", this.state.items);
-                    this.updateItems(this.state.items);
+                    this.numberPages = Math.ceil(data.count/this.recordsPerPage);
+                    console.error("numberPages", this.numberPages);
+                    this.updateItems(data.results);
                 },
                 (error) => {
                     this.setState({
@@ -40,7 +43,12 @@ export default class TestApp extends React.Component{
                 </div>
                 <div className="container">
                     <ListComponent items={this.state.items}/>
-
+                        <PaginationComponent
+                            items={this.state.items}
+                            numberPages={this.numberPages}
+                            recordsPerPage={this.recordsPerPage}
+                            updateItems={this.updateItems}
+                        />
                 </div>
             </div>
         );
