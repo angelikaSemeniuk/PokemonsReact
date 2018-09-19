@@ -8,7 +8,7 @@ export default class TestApp extends React.Component{
         this.state = {
             items: []
         };
-        this.recordsPerPage = 50;
+        this.recordsPerPage = 36;
         this.numberPages = 0;
         this.updateItems = this.updateItems.bind(this);
     }
@@ -18,7 +18,7 @@ export default class TestApp extends React.Component{
     }
 
     componentDidMount() {
-        fetch('https://pokeapi.co/api/v2/pokemon/?limit=50&offset=0')
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=36&offset=0')
             .then((response) => {
                 return response.json();
             })
@@ -42,16 +42,15 @@ export default class TestApp extends React.Component{
                     <h1>Pokemons</h1>
                 </div>
                 <div className="container">
-                    <ListComponent items={this.state.items}/>
-                        <PaginationComponent
-                            items={this.state.items}
-                            numberPages={this.numberPages}
-                            recordsPerPage={this.recordsPerPage}
-                            updateItems={this.updateItems}
-                        />
+                    <ListComponent items={this.state.items} />
+                    <PaginationComponent
+                        items={this.state.items}
+                        numberPages={this.numberPages}
+                        recordsPerPage={this.recordsPerPage}
+                        updateItems={this.updateItems}
+                    />
                 </div>
             </div>
         );
     }
-
 }

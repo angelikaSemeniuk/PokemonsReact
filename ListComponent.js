@@ -4,6 +4,7 @@ export default class ListComponent extends React.Component{
     constructor(props) {
         super(props);
     }
+
     render () {
         const listElements = this.props.items.map((item) => {
             return (
@@ -12,10 +13,8 @@ export default class ListComponent extends React.Component{
                 </div>
             );
         })
-
         return(
             <div className="list">{listElements}</div>
         );
     }
-
 }

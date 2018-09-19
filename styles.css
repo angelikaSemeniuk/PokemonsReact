@@ -9,6 +9,9 @@ body {
 }
 
 .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
     background-color: aliceblue;
 }
 
@@ -28,12 +31,10 @@ body {
 
 /* Main styles */
 .item {
-    margin: 30px;
-    display: inline-block;
+    margin: 15px;
     border: 1px solid #e9eaed;
     color: yellowgreen;
     background-color: beige;
-    padding: 40px 0;
     width: 20%;
 
 }
